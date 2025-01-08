@@ -30,8 +30,9 @@ public class Network {
      *  If there is no such user, returns null.
      *  Notice that the method receives a String, and returns a User object. */
     public User getUser(String name) {
+        String str = name.substring(0, 1).toUpperCase() + name.substring(1);
         for (int i = 0; i < userCount; i ++){
-            if (this.users[i] != null && name.equals(this.users[i].getName())) {
+            if (this.users[i] != null && str.equals(this.users[i].getName())) {
                 return users[i];
             }
         }
@@ -81,7 +82,7 @@ public class Network {
                 userToFollow = users[i];
             }
         }
-        return userToFollow.toString();
+        return userToFollow.getName().toString();
     }
 
     /** Computes and returns the name of the most popular user in this network: 
@@ -97,7 +98,7 @@ public class Network {
                 maxIndex = i;   
             }
         }
-        return users[maxIndex].getName();
+        return users[maxIndex].getName().toString();
     }
     
     // //Returns the index for other User in this users[].
@@ -133,10 +134,10 @@ public class Network {
 
     // Returns a textual description of all the users in this network, and who they follow.
     public String toString() {
-       System.out.println("Network:");
+       String ans = "Network:\n";
        for (int i = 0; i < userCount; i ++){
-        System.out.println(users[i].toString());
+        ans += users[i].toString() + "\n";
        }
-       return "";
+       return ans;
     }
 }
