@@ -22,7 +22,8 @@ public class UserTest {
         System.out.println(alex);
 
         System.out.println("\n...Trying to add Ben again...");
-        alex.addFollowee("Ben");    
+        alex.addFollowee("Ben");
+        System.out.println(alex);    
 
         System.out.println("\n...Trying to add Or, Zohar, Dror, Josh, Idan, Uri, Maya, and Dan to Alex...");
         alex.addFollowee("Or");
@@ -37,10 +38,11 @@ public class UserTest {
 
         System.out.println("\n...Removing Neta...");
         alex.removeFollowee("Neta");
+        System.out.println(alex);
 
         System.out.println("\n...Trying to remove Liam...");
         alex.removeFollowee("Liam");
-
+        
         System.out.println(alex);
 
         System.out.println("\n...Creating a user named Orly...");
