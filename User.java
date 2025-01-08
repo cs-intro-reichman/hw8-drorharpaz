@@ -40,11 +40,17 @@
     public int getfCount() {
         return fCount;
     }
+    
+    //Make sure the given name starts with upper case.
+    public String upperNam (String name) {
+        return  name.substring(0, 1).toUpperCase() + name.substring(1);
+    }
 
     /** If this user follows the given name, returns true; otherwise returns false. */
     public boolean follows(String name) {
+        String upperName = upperNam(name);
         for (int i = 0; i < maxfCount; i ++){
-            if (this.follows[i] != null && this.follows[i].equals(name)) {
+            if (this.follows[i] != null && this.follows[i].equals(upperName)) {
                 return true;
             }
         }
@@ -54,10 +60,11 @@
     /** Makes this user follow the given name. If successful, returns true. 
      *  If this user already follows the given name, or if the follows list is full, does nothing and returns false; */
     public boolean addFollowee(String name) {
-        if (this.getfCount() >= maxfCount || this.follows(name) || this.getName().equals(name)) {
+        String upperName = upperNam(name);
+        if (this.getfCount() >= maxfCount || this.follows(upperName) || this.getName().equals(upperName)) {
             return false;
         }
-        this.follows[this.fCount] = name;
+        this.follows[this.fCount] = upperName;
         fCount ++;
         return true;
     }
