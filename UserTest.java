@@ -51,6 +51,7 @@ public class UserTest {
         orly.addFollowee("Boaz");
         orly.addFollowee("Maya");
         orly.addFollowee("Talia");
+        orly.addFollowee("Alex");
         orly.addFollowee("Dror");
         System.out.println(orly);
 
